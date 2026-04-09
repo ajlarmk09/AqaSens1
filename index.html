@@ -272,19 +272,26 @@ U budućnosti planiramo implementaciju dodatnih funkcija poput AI analize rasta 
 
 <!-- KONTAKT -->
 
-<section id="kontakt" class="hidden">
-<div class="card">
-<h2>Kontakt</h2>
+<script>
+window.onload=function(){
 
-<form>
-<input type="text" placeholder="Ime">
-<input type="email" placeholder="Email">
-<textarea placeholder="Poruka"></textarea>
-<input type="submit" value="Pošalji">
-</form>
+const status=document.getElementById("emailStatus");
 
-</div>
-</section>
+document.getElementById("contact-form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+emailjs.sendForm("service_b5qpu19","template_2t3wr1y",this)
+
+.then(()=>{
+status.innerHTML="✅ Email uspješno poslan!";
+},()=>{
+status.innerHTML="❌ Greška pri slanju.";
+});
+
+});
+}
+</script>
 
 <!-- FOOTER -->
 
